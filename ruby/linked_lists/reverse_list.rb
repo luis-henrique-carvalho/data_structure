@@ -10,12 +10,17 @@ class ListNode
   # Cria uma lista ligada a partir de array
   def build_list(arr)
     return nil if arr.empty?
+
     head = ListNode.new(arr[0])
+
     current = head
+
     arr[1..].each do |val|
       current.next = ListNode.new(val)
+
       current = current.next
     end
+
     head
   end
 
@@ -23,20 +28,24 @@ class ListNode
   def print_list(head)
     while head
       print "#{head.val} -> "
+
       head = head.next
     end
+
     puts "nil"
   end
 
   # Função de inversão
   def reverse_list(head)
     new_list = nil
+
     while head
       next_node = head.next
       head.next = new_list
       new_list = head
       head = next_node
     end
+
     new_list
   end
 
